@@ -41,6 +41,13 @@ to CAS server versions. Also, make sure the version matches a branch name on the
 
 The image will be built as `apereo/cas:v$CasVersion`.
 
+**NOTE:** If you are building for **Demo** puposes then make sure the private keys are added to keystore by running the following commands.
+
+```
+keytool -genkeypair -alias cas -keyalg RSA -keypass changeit -storepass changeit -keystore <PATH/TO/KEYSTORE> -ext SAN="dns:localhost,ip:127.0.0.1"
+```
+Caution: The above commands adds new key pair which is okay for demo pueposes. For production systems you might want to change the SAN and other parameters as needed.
+
 ## Run
 
 ```bash
